@@ -1,0 +1,13 @@
+ALTER TABLE ORDERS
+ADD IsDeleted BIT DEFAULT 0;
+
+UPDATE ORDERS
+SET IsDeleted = 1
+WHERE Status = 'Canceled';
+
+SELECT *
+FROM ORDERS
+WHERE IsDeleted = 0;
+
+SELECT *
+FROM ORDERS;
